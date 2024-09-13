@@ -1,0 +1,20 @@
+<div class="container text-center mt-3">
+    <h1 class="mt-3">Картинная галерея</h1>
+</div>
+<div class="container text-center mt-3">
+    <div class="row g-4">
+        @for(p of getPaintings();track p.id){
+        <div class="col-4">
+            <a routerLink="/painting/{{p.id}}">
+                <div class="card mt-3 h-100">
+                    <img src="/paintings/{{p.file}}" class="card-img-top img-fluid" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{p.name}}</h5>
+                        <p class="card-text">Авторы: {{getAuthors(p.authors)}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        }
+    </div>
+</div>

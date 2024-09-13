@@ -19,6 +19,7 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+.editorconfig
 
 # Visual Studio Code
 .vscode/*
@@ -43,3 +44,4 @@ Thumbs.db
 
 # Я добавиль
 package-lock.json
+src/environments/environment.ts
