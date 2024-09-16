@@ -1,0 +1,7 @@
+<div class="card h-100"><a routerLink="painting/{{painting.id}}" [queryParams]="{painting:getQueryParams()}"><img
+            src="/paintings/{{painting.file}}" alt="" class="card-img-top img-fluid"></a>
+    <div class="card-body">
+        <h5 class="card-title">{{painting.name}}</h5>
+        <p class="card-text">Авторы: {{getAuthors()}}</p>
+    </div>
+</div>

@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
+import { GalleryComponent } from './gallery/gallery.component';
 import { RouterOutlet } from '@angular/router';
-import { PaintingsComponent } from './paintings/paintings.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PaintingsComponent],
+  imports: [GalleryComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'artGallery';
-}
+export class AppComponent { }

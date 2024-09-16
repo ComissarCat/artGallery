@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="row g-4">@for(p of getPaintings(); track p.id){
+        <div class="col-md-4">
+            <app-gallery-card [painting]=p />
+        </div>
+        }
+    </div>
+</div>
