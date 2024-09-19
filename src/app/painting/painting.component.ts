@@ -8,29 +8,22 @@ import { MiniatureComponent } from './miniature/miniature.component';
   selector: 'app-painting',
   standalone: true,
   imports: [MiniatureComponent, RouterLink],
-  providers: [GalleryService],
   templateUrl: './painting.component.html',
   styleUrl: './painting.component.scss'
 })
 export class PaintingComponent {
   id: number = 0;
   params: string = '';
-  painting: Painting = {
-    id: 0,
-    file: '',
-    name: '',
-    authors: [],
-    year: '',
-    place: {
-      id: 0,
-      name: ''
-    }
-  };
-
+  painting!: Painting;
+  otherPaintings!: Painting[];
   constructor(private route: ActivatedRoute, private galleryService: GalleryService) {
-    route.params.subscribe(params => this.id = params["id"]);
-    route.queryParams.subscribe(params => this.params = params["painting"]);
-    this.painting = JSON.parse(this.params);
+    route.params.subscribe(params => this.id = Number(params["id"]));
+    this.painting = this.getPainting(this.id);
+    this.otherPaintings = this.getOtherPaintings();
+  }
+
+  getPainting(id: number): Painting {
+    return this.galleryService.getPaintingById(id);
   }
 
   getAuthors(): string {
@@ -43,5 +36,11 @@ export class PaintingComponent {
 
   getOtherPaintings(): Painting[] {
     return this.galleryService.getPaintingsByAuthors(this.painting.authors).filter(p => p.id != this.painting.id);
+  }
+
+  changeMainPainting(id: number) {
+    this.id = id;
+    this.painting = this.getPainting(this.id);
+    this.otherPaintings = this.getOtherPaintings();
   }
 }

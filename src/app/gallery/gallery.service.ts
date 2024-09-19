@@ -9,6 +9,10 @@ export class GalleryService {
 
   constructor() { }
 
+  getPaintingById(id: number): Painting {
+    return environment.paintings.filter(p => p.id === id)[0];
+  }
+
   getPaintings(): Painting[] {
     return environment.paintings;
   }

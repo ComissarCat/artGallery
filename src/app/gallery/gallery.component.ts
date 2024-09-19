@@ -7,7 +7,6 @@ import { Painting } from '../definitions';
   selector: 'app-gallery',
   standalone: true,
   imports: [GalleryCardComponent],
-  providers: [GalleryService],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss'
 })

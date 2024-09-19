@@ -10,17 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './miniature.component.scss'
 })
 export class MiniatureComponent {
-  @Input() painting: Painting = {
-    id: 0,
-    file: '',
-    name: '',
-    authors: [],
-    year: '',
-    place: {
-      id: 0,
-      name: ''
-    }
-  };
+  @Input() painting!: Painting;
 
   getAuthors(): string {
     var result: string[] = [];
@@ -28,9 +18,5 @@ export class MiniatureComponent {
       result.push(this.painting.authors[i].name);
     }
     return result.join(", ");
-  }
-
-  getQueryParams(): string {
-    return JSON.stringify(this.painting);
   }
 }

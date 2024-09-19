@@ -10,17 +10,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './gallery-card.component.scss'
 })
 export class GalleryCardComponent {
-  @Input() painting: Painting = {
-    id: 0,
-    file: '',
-    name: '',
-    authors: [],
-    year: '',
-    place: {
-      id: 0,
-      name: ''
-    }
-  };
+  @Input() painting!: Painting;
 
   getAuthors(): string {
     var result: string[] = [];
